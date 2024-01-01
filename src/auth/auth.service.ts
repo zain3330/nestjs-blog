@@ -45,7 +45,7 @@ export class AuthService {
   async login(authLoginDto:AuthLoginDto){
     //check user fond if found return user
     const user =this.validateUser(authLoginDto);
-    console.log('User:', user);
+    
 
     //extract user id and role 
     const payload={
