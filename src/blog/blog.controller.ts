@@ -25,7 +25,7 @@ export class BlogController {
   @Post()
   async create(@Body() createBlogDto: CreateBlogDto,  @AuthUser() user: any) {
    
-    return this.blogService.create(createBlogDto, user.userId);
+    return this.blogService.create(createBlogDto, user);
   }
   
   @Get()

@@ -2,6 +2,7 @@ import { BaseEntity, BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, 
 import * as bcrypt from 'bcryptjs';
 import { UserRole } from "src/auth/enum/role.enum";
 import { Blog } from "src/blog/entities/blog.entity";
+import { Comment } from "src/comments/entities/comment.entity";
 
 @Entity()
 export class User extends BaseEntity{
@@ -35,5 +36,9 @@ export class User extends BaseEntity{
     }
     @OneToMany(()=>Blog,blog=>blog.user)
     blog:Blog[];
+
+    @OneToMany(() => Comment, comment => comment.user )
+    comments: Comment[];
+  
     
-}
+} 

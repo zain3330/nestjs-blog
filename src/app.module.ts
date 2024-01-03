@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { MailModule } from './mail/mail.module';
 import { UserModule } from './user/user.module';
 import { BlogModule } from './blog/blog.module';
+import { CommentsModule } from './comments/comment.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { BlogModule } from './blog/blog.module';
  MailModule,
  UserModule,
  BlogModule,
+ CommentsModule,
   ],
  
 })

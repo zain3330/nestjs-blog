@@ -18,20 +18,20 @@ export class BlogService {
     try {
       await blog.save();
     } catch (err) {
-      throw InternalServerErrorException
+      throw InternalServerErrorException;
     }
     return blog;
   }
-
+  
   async findAll() {
     const blogs = await this.blogRepository.find({ relations: ['user'] });
     const blogsCreatedByUsers = blogs.filter(blog => blog.user !== null);
     console.log("all blogs",blogsCreatedByUsers);
-    return blogs;
+    return blogsCreatedByUsers;
   }
 
   async findOne(id: number) {
-    const blog = await this.blogRepository.findOneBy;
+    const blog = await this.blogRepository.findOne({where:{id}});
     return blog;
   }
 
