@@ -24,14 +24,14 @@ export class BlogService {
   }
   
   async findAll() {
-    const blogs = await this.blogRepository.find({ relations: ['user'] });
+    const blogs = await this.blogRepository.find({ relations: ['user','comments'] });
     const blogsCreatedByUsers = blogs.filter(blog => blog.user !== null);
     console.log("all blogs",blogsCreatedByUsers);
     return blogsCreatedByUsers;
   }
 
   async findOne(id: number) {
-    const blog = await this.blogRepository.findOne({where:{id}});
+    const blog = await this.blogRepository.findOne({where:{id},relations:['comments']});
     return blog;
   }
 

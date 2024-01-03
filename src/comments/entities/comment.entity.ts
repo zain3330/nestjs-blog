@@ -11,7 +11,7 @@ export class Comment extends BaseEntity {
     @Column()
     message:string;
    
-    @ManyToOne(() => Blog, blog => blog.comments  )
+    @ManyToOne(() => Blog, blog => blog.comments)
     blog: Blog;
 
     @Column( {nullable: true })
